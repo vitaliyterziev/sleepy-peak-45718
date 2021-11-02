@@ -1,3 +1,19 @@
 from django.db import models
 
-# Create your models here.
+
+class Entry(models.Model):
+    entry_title = models.CharField(max_length=200)
+    entry_content = models.TextField()
+    pub_date = models.DateTimeField('date published')
+
+    def __str__(self):
+        return self.entry_title
+
+
+class Comment(models.Model):
+    entry = models.ForeignKey(Entry, on_delete=models.CASCADE)
+    comment_text = models.CharField(max_length=300)
+    pub_date = models.DateTimeField('date published')
+
+    def __str__(self):
+        return self.comment_text
