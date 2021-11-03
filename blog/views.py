@@ -38,7 +38,7 @@ def comment(request, entry_id):
             raise ValueError("Less than 5 characters in the comment")
     except (ValueError):
         # Redisplay the post comment form.
-        return render(request, 'blog/detail.html', {
+        return render(request, 'blog/entry_detail.html', {
             'entry': entry,
             'error_message': "You didn't enter at least 5 characters.",
         })
