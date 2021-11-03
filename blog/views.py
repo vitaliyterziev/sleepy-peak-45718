@@ -20,9 +20,9 @@ class IndexView(generic.ListView):
         return Entry.objects.order_by('-pub_date')[:5]
 
 
-class DetailView(generic.DetailView):
+class EntryDetailView(generic.DetailView):
     model = Entry
-    template_name = 'blog/detail.html'
+    #template_name = 'blog/detail.html'
 
 
 class EntryMonthArchiveView(MonthArchiveView):
