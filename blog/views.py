@@ -5,6 +5,7 @@ from django.urls import reverse
 from .models import Entry
 from django.utils import timezone
 #from django.db.models.functions import ExtractMonth, ExtractYear
+from django.views.generic.dates import MonthArchiveView
 
 # Create your views here.
 
@@ -22,6 +23,11 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
     model = Entry
     template_name = 'blog/detail.html'
+
+
+class EntryMonthArchiveView(MonthArchiveView):
+    queryset = Entry.objects.all()
+    date_field = "pub_date"
 
 
 def comment(request, entry_id):

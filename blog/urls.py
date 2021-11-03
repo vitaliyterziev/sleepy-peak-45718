@@ -6,4 +6,6 @@ urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
     path('<int:pk>/', views.DetailView.as_view(), name='detail'),
     path('<int:entry_id>/comment', views.comment, name='comment'),
+    path('<int:year>/<int:month>/', views.EntryMonthArchiveView.as_view(
+        month_format='%m'), name="archive_month_numeric"),
 ]
