@@ -2,21 +2,21 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
-<br><br>
-<ul class="list-group list-group-flush">
-    {% for entry in object_list %}
-        <li class="list-group-item"><a href="{% url 'blog:detail' entry.id %}">{{ entry.pub_date|date:"F j, Y" }}: {{ entry.entry_title }}</a></li>
-    {% endfor %}
-</ul>
+    <div class="container">
+        <br><br>
+        <ul class="list-group list-group-flush">
+            {% for entry in object_list %}
+                <li class="list-group-item"><a href="{% url 'blog:detail' entry.id %}">{{ entry.pub_date|date:"F j, Y" }}: {{ entry.entry_title }}</a></li>
+            {% endfor %}
+        </ul>
 
-<p>
-    {% if previous_month %}
-    <a href="{% url 'blog:archive_month_numeric' previous_month.year previous_month.month %}">Previous Month: {{ previous_month|date:"F Y" }}</a>
-    {% endif %}
-    {% if next_month %}
-    <a href="{% url 'blog:archive_month_numeric' next_month.year next_month.month %}">Next Month: {{ next_month|date:"F Y" }}</a>
-    {% endif %}
-</p>
-</div>
+        <p>
+            {% if previous_month %}
+                <a href="{% url 'blog:archive_month_numeric' previous_month.year previous_month.month %}">Previous Month: {{ previous_month|date:"F Y" }}</a>
+            {% endif %}
+            {% if next_month %}
+                <a href="{% url 'blog:archive_month_numeric' next_month.year next_month.month %}">Next Month: {{ next_month|date:"F Y" }}</a>
+            {% endif %}
+        </p>
+    </div>
 {% endblock %}
