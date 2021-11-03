@@ -4,7 +4,6 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .models import Entry
 from django.utils import timezone
-#from django.db.models.functions import ExtractMonth, ExtractYear
 
 # Create your views here.
 
@@ -15,7 +14,6 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         """Return the last five published posts."""
-        #t = Entry.objects.annotate(year=ExtractYear('pub_date'), month=ExtractMonth('pub_date')).values('year', 'month')
         return Entry.objects.order_by('-pub_date')[:5]
 
 
