@@ -1,12 +1,13 @@
 from django.test import TestCase
 from django.urls import reverse
+from .models import Entry, Comment
 
 # Create your tests here.
 
 
 class EntryDetailViewTests(TestCase):
 
-    def test_entered_invalid_comment(self):
+    def test_submit_invalid_comment(self):
         """
         status 200 form is re-rendered because of value error
         """
@@ -14,7 +15,7 @@ class EntryDetailViewTests(TestCase):
             reverse('blog:comment', args=(1,)), {'comment': 'shrt'})
         self.assertEqual(response.status_code, 200)
 
-    def test_entered_valid_comment(self):
+    def test_submit_valid_comment(self):
         """
         status 302 form is submitted and value is saved to DB
         """
