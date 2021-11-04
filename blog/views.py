@@ -2,8 +2,9 @@ from django.shortcuts import get_object_or_404, render
 from django.views import generic
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .models import Entry
+from .models import Entry, Membership
 from django.utils import timezone
+from django.contrib.messages.views import SuccessMessageMixin
 
 # Create your views here.
 
@@ -24,7 +25,16 @@ class EntryDetailView(generic.DetailView):
 
 class EntryMonthArchiveView(generic.dates.MonthArchiveView):
     queryset = Entry.objects.all()
-    date_field = "pub_date"
+    date_field = 'pub_date'
+
+
+class MembershipFormView(SuccessMessageMixin, generic.CreateView):
+    model = Membership
+    fields = ['email_address']
+    success_message = "Thanks for subscribing!"
+
+    def get_success_url(self):
+        return reverse('blog:subscribe')
 
 
 def comment(request, entry_id):
