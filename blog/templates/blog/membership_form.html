@@ -11,13 +11,12 @@
         {% endif %}
         <form method="post">{% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="Save">
+            <input type="submit" class="btn btn-primary mb-2" value="Save">
         </form>
     </div>
 
     <script>
-        document.querySelectorAll('input')[1].classList += 'col-form-label col-md-4 col-sm-12 pt-0';
-        document.querySelectorAll('input')[2].classList += 'btn btn-light btn-primary mb-2'    
+        document.querySelectorAll('input')[1].classList += 'col-form-label col-md-4 col-sm-12 pt-0';    
     </script>
 
 {% endblock %}
