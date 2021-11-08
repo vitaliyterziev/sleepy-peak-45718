@@ -7,7 +7,7 @@ from .models import Entry
 # Create your tests here.
 
 
-class IndexView(TestCase):
+class IndexViewTests(TestCase):
     def test_no_entries(self):
         """
         If no posts exist, an appropriate message is displayed
@@ -66,7 +66,7 @@ class EntryMonthArchiveViewTests(TestCase):
         self.assertEqual(response.status_code, 404)
 
 
-class MembershipFormView(TestCase):
+class MembershipFormViewTests(TestCase):
     def test_submit_email(self):
         """
         test creating a new membership record, 302 email is in the DB
