@@ -107,6 +107,7 @@ h1, h2, h3, h4, h5, h6 {
  */
 .blog-post {
   margin-bottom: 4rem;
+  margin-top: 1rem;
 }
 .blog-post-title {
   margin-bottom: .25rem;
@@ -129,4 +130,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .blog-footer p:last-child {
   margin-bottom: 0;
+}
+.jumbotron {
+  margin-top: 1rem;
 }
