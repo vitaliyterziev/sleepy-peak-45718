@@ -10,7 +10,7 @@ from .models import Entry
 class IndexView(TestCase):
     def test_no_entries(self):
         """
-        If no posts exist, an appropriate message is displayed.
+        If no posts exist, an appropriate message is displayed
         """
         response = self.client.get(reverse('blog:index'))
         self.assertEqual(response.status_code, 200)
