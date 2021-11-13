@@ -9,7 +9,7 @@
         <meta name="author" content="">
         <link rel="icon" href="">
 
-        <title>CB</title>
+        <title>TB</title>
 
         <!-- Bootstrap core CSS -->
         <link href="{% static 'blog/bootstrap.min.css' %}" rel="stylesheet">
@@ -28,7 +28,7 @@
                         <a class="text-muted" href="{% url 'blog:subscribe' %}">Subscribe</a>
                     </div>
                     <div class="col-4 text-center">
-                        <a class="blog-header-logo text-dark" href="/">The News Bay</a>
+                        <a class="blog-header-logo text-dark" href="/">The Blog</a>
                     </div>
                     <div class="col-4 d-flex justify-content-end align-items-center">
                         <!--<a class="text-muted" href="#">
@@ -41,6 +41,10 @@
                     </div>
                 </div>
             </header>
+            <div class="">
+                <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinMarquee.js"></script>
+                <div id="coinmarketcap-widget-marquee" coins="1,1027,11212,5426,2010" currency="EUR" theme="light" transparent="true" show-symbol-logo="true"></div>
+            </div>
         </div>
 
         {% block content %}{% endblock %}

@@ -134,3 +134,9 @@ h1, h2, h3, h4, h5, h6 {
 .jumbotron {
   margin-top: 1rem;
 }
+
+/* Coinmarket cap widget styles */
+
+.coin-marquee-wrapper {
+  border: 0px !important;
+}
