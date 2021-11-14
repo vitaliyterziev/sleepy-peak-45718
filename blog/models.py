@@ -1,10 +1,11 @@
 from django.db import models
-
+from django.core import validators
 
 class Entry(models.Model):
     entry_title = models.CharField(max_length=200)
     entry_content = models.TextField()
     pub_date = models.DateTimeField('date published')
+    entry_img = models.ImageField(blank=True, validators=[validators.validate_image_file_extension])
 
     def __str__(self):
         return self.entry_title
@@ -20,7 +21,7 @@ class Comment(models.Model):
 
 
 class Membership(models.Model):
-    email_address = models.CharField(max_length=200)
+    email_address = models.CharField(max_length=200, validators=[validators.validate_email])
 
     def __str__(self):
         return self.email_address
