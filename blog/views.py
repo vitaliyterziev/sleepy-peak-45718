@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404, render
 from django.views import generic
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from blog.forms import MembershipForm
 from .models import Entry, Membership
 from django.utils import timezone
 from django.contrib.messages.views import SuccessMessageMixin
@@ -30,7 +31,7 @@ class EntryMonthArchiveView(generic.dates.MonthArchiveView):
 
 class MembershipFormView(SuccessMessageMixin, generic.CreateView):
     model = Membership
-    fields = ['email_address']
+    form_class = MembershipForm
     success_message = "Thanks for subscribing!"
 
     def get_success_url(self):
